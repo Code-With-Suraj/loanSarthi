@@ -1,386 +1,177 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- ======================================================
-       LoanSarthi — Premium Finance Business Platform
-       Optimized Landing Wrapper
-  ======================================================= -->
 
-  <meta charset="UTF-8" />
-  <meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0, maximum-scale=1.0"
-  />
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
 
-  <!-- SEO -->
-  <title>
-    LoanSarthi — Modern Loan Management Software for Finance Businesses
-  </title>
+<title>LoanSarthi — Smart Loan Management Platform</title>
 
-  <meta
-    name="description"
-    content="LoanSarthi helps finance businesses manage loans, EMI collections, recovery tracking, customer records, collectors, reports, and online payments in one powerful system."
-  />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
 
-  <meta
-    name="keywords"
-    content="Loan Management Software, Finance Business Software, EMI Collection System, Recovery Tracking Software, Daily Collection App, Finance CRM"
-  />
+<style>
+:root {
+  --bg:#0f172a;
+  --primary:#3b82f6;
+  --secondary:#8b5cf6;
+  --text:#f8fafc;
+  --muted:#94a3b8;
+}
 
-  <!-- Theme -->
-  <meta name="theme-color" content="#0f172a" />
+/* RESET */
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{height:100%}
+body{
+  font-family:'Inter',sans-serif;
+  background:var(--bg);
+  color:var(--text);
+  overflow-x:hidden;
+}
 
-  <!-- Favicon -->
-  <link
-    rel="icon"
-    type="image/png"
-    href="https://cdn-icons-png.flaticon.com/512/3135/3135715.png"
-  />
+/* SAFE AREA (Mobile Notch Fix) */
+body{
+  padding-top: env(safe-area-inset-top);
+  padding-bottom: env(safe-area-inset-bottom);
+}
 
-  <!-- Fonts -->
-  <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
-    rel="stylesheet"
-  />
+/* LOADER */
+.loader{
+  position:fixed;
+  inset:0;
+  z-index:9999;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:linear-gradient(135deg,#0f172a,#111827);
+  transition:opacity .4s ease,visibility .4s;
+}
 
-  <style>
-    :root {
-      --bg: #0f172a;
-      --bg2: #111827;
-      --primary: #3b82f6;
-      --secondary: #8b5cf6;
-      --success: #10b981;
-      --text: #f8fafc;
-      --text2: #94a3b8;
-      --glass: rgba(255, 255, 255, 0.06);
-      --border: rgba(255, 255, 255, 0.08);
-      --shadow: 0 10px 40px rgba(0, 0, 0, 0.35);
-      --radius: 18px;
-    }
+.loader.hide{
+  opacity:0;
+  visibility:hidden;
+  pointer-events:none;
+}
 
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+/* CARD */
+.card{
+  width:90%;
+  max-width:340px;
+  padding:28px;
+  border-radius:20px;
+  background:rgba(255,255,255,0.05);
+  backdrop-filter:blur(16px);
+  text-align:center;
+}
 
-    html {
-      scroll-behavior: smooth;
-      -webkit-tap-highlight-color: transparent;
-    }
+/* LOGO */
+.logo{
+  font-size:28px;
+  font-weight:800;
+  background:linear-gradient(90deg,var(--primary),var(--secondary));
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  margin-bottom:8px;
+}
 
-    body {
-      font-family: "Inter", sans-serif;
-      background: var(--bg);
-      overflow: hidden;
-      color: var(--text);
-    }
+/* TEXT */
+.tagline{
+  font-size:12px;
+  color:var(--muted);
+  margin-bottom:20px;
+}
 
-    /* ======================================================
-       LOADER
-    ======================================================= */
+/* SPINNER */
+.spinner{
+  width:60px;
+  height:60px;
+  margin:0 auto 20px;
+  border-radius:50%;
+  border:4px solid rgba(255,255,255,0.1);
+  border-top:4px solid var(--primary);
+  animation:spin 1s linear infinite;
+}
+@keyframes spin{to{transform:rotate(360deg)}}
 
-    .loader {
-      position: fixed;
-      inset: 0;
-      z-index: 99999;
+/* PROGRESS */
+.progress{
+  height:6px;
+  width:100%;
+  border-radius:10px;
+  background:rgba(255,255,255,0.1);
+  overflow:hidden;
+}
+.bar{
+  height:100%;
+  width:0%;
+  background:linear-gradient(90deg,var(--primary),var(--secondary));
+  transition:width .4s ease;
+}
 
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-direction: column;
+/* IFRAME */
+.app{
+  width:100%;
+  height:100%;
+}
+iframe{
+  width:100%;
+  height:100%;
+  border:none;
+}
 
-      background:
-        radial-gradient(circle at top right, #1e3a8a 0%, transparent 30%),
-        radial-gradient(circle at bottom left, #6d28d9 0%, transparent 30%),
-        var(--bg);
+/* MOBILE OPTIMIZATION */
+@media(max-width:480px){
+  .logo{font-size:24px}
+  .card{padding:22px}
+}
 
-      transition: opacity 0.5s ease, visibility 0.5s ease;
-    }
-
-    .loader.hide {
-      opacity: 0;
-      visibility: hidden;
-    }
-
-    /* Glass Card */
-    .loader-card {
-      background: var(--glass);
-      border: 1px solid var(--border);
-      backdrop-filter: blur(18px);
-
-      padding: 40px 32px;
-      border-radius: 24px;
-
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-
-      box-shadow: var(--shadow);
-
-      width: 90%;
-      max-width: 340px;
-    }
-
-    /* Logo */
-    .logo {
-      font-size: 32px;
-      font-weight: 800;
-      letter-spacing: -1px;
-
-      background: linear-gradient(
-        135deg,
-        var(--primary),
-        var(--secondary)
-      );
-
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-
-      margin-bottom: 10px;
-    }
-
-    .tagline {
-      color: var(--text2);
-      font-size: 13px;
-      margin-bottom: 28px;
-      text-align: center;
-    }
-
-    /* Spinner */
-    .spinner-wrap {
-      position: relative;
-      width: 82px;
-      height: 82px;
-      margin-bottom: 24px;
-    }
-
-    .spinner {
-      width: 82px;
-      height: 82px;
-      border-radius: 50%;
-
-      background:
-        conic-gradient(
-          from 0deg,
-          var(--primary),
-          var(--secondary),
-          var(--success),
-          var(--primary)
-        );
-
-      animation: spin 1s linear infinite;
-
-      mask:
-        radial-gradient(
-          farthest-side,
-          transparent 62%,
-          black 63%
-        );
-
-      -webkit-mask:
-        radial-gradient(
-          farthest-side,
-          transparent 62%,
-          black 63%
-        );
-    }
-
-    .spinner-center {
-      position: absolute;
-      inset: 18px;
-
-      border-radius: 50%;
-
-      background: rgba(15, 23, 42, 0.9);
-
-      display: flex;
-      align-items: center;
-      justify-content: center;
-
-      font-size: 20px;
-    }
-
-    @keyframes spin {
-      to {
-        transform: rotate(360deg);
-      }
-    }
-
-    /* Loading Text */
-    .loader-title {
-      font-size: 16px;
-      font-weight: 700;
-      margin-bottom: 8px;
-    }
-
-    .loader-text {
-      font-size: 13px;
-      color: var(--text2);
-      text-align: center;
-      line-height: 1.6;
-    }
-
-    /* Progress */
-    .progress {
-      width: 100%;
-      height: 8px;
-      margin-top: 24px;
-
-      border-radius: 999px;
-      overflow: hidden;
-
-      background: rgba(255, 255, 255, 0.06);
-    }
-
-    .progress-bar {
-      width: 0%;
-      height: 100%;
-
-      background:
-        linear-gradient(
-          90deg,
-          var(--primary),
-          var(--secondary)
-        );
-
-      border-radius: 999px;
-
-      animation: progressAnim 2.5s ease forwards;
-    }
-
-    @keyframes progressAnim {
-      0% {
-        width: 0%;
-      }
-      30% {
-        width: 35%;
-      }
-      60% {
-        width: 72%;
-      }
-      100% {
-        width: 95%;
-      }
-    }
-
-    /* ======================================================
-       IFRAME
-    ======================================================= */
-
-    .iframe-container {
-      width: 100%;
-      height: 100vh;
-      background: #fff;
-    }
-
-    iframe {
-      width: 100%;
-      height: 100%;
-      border: none;
-      display: block;
-    }
-
-    /* ======================================================
-       MOBILE
-    ======================================================= */
-
-    @media (max-width: 600px) {
-      .loader-card {
-        padding: 32px 22px;
-      }
-
-      .logo {
-        font-size: 28px;
-      }
-
-      .loader-title {
-        font-size: 15px;
-      }
-
-      .loader-text {
-        font-size: 12px;
-      }
-    }
-  </style>
+</style>
 </head>
 
 <body>
 
-  <!-- ======================================================
-       PREMIUM LOADER
-  ======================================================= -->
-
-  <div class="loader" id="loader">
-
-    <div class="loader-card">
-
-      <div class="logo">LoanSarthi</div>
-
-      <div class="tagline">
-        Track Karo. Loan Do. Recovery Karo.
-      </div>
-
-      <div class="spinner-wrap">
-        <div class="spinner"></div>
-
-        <div class="spinner-center">
-          💰
-        </div>
-      </div>
-
-      <div class="loader-title">
-        Loading Your Finance Dashboard
-      </div>
-
-      <div class="loader-text">
-        Securely preparing loan records, EMI tracking,
-        reports, and customer data...
-      </div>
-
-      <div class="progress">
-        <div class="progress-bar"></div>
-      </div>
-
-    </div>
-
+<div class="loader" id="loader">
+  <div class="card">
+    <div class="logo">LoanSarthi</div>
+    <div class="tagline">Track • Manage • Recover</div>
+    <div class="spinner"></div>
+    <div class="progress"><div class="bar" id="bar"></div></div>
   </div>
+</div>
 
-  <!-- ======================================================
-       APP FRAME
-  ======================================================= -->
+<div class="app">
+  <iframe 
+    id="frame"
+    src="https://script.google.com/macros/s/AKfycbz5rO2qSm8s_mFCP7j-eh5d9H8XPO9sxxfzzU2A_WrWgUEj__QCI5tA_27iHmWI0udmZw/exec"
+    loading="eager"
+    onload="loaded()"
+  ></iframe>
+</div>
 
-  <div class="iframe-container">
+<script>
+const loader = document.getElementById("loader");
+const bar = document.getElementById("bar");
 
-    <iframe
-      id="appFrame"
-      src="https://script.google.com/macros/s/AKfycbz5rO2qSm8s_mFCP7j-eh5d9H8XPO9sxxfzzU2A_WrWgUEj__QCI5tA_27iHmWI0udmZw/exec"
-      loading="eager"
-      referrerpolicy="strict-origin-when-cross-origin"
-      allowfullscreen
-      onload="hideLoader()"
-    ></iframe>
+let progress = 0;
 
-  </div>
+// Fake progress animation (better UX feel)
+const interval = setInterval(()=>{
+  progress += Math.random()*15;
+  if(progress >= 90) progress = 90;
+  bar.style.width = progress + "%";
+},300);
 
-  <!-- ======================================================
-       SCRIPT
-  ======================================================= -->
+function loaded(){
+  clearInterval(interval);
+  bar.style.width = "100%";
 
-  <script>
-    const loader = document.getElementById("loader");
+  setTimeout(()=>{
+    loader.classList.add("hide");
+  },500);
+}
 
-    function hideLoader() {
-      setTimeout(() => {
-        loader.classList.add("hide");
-      }, 700);
-    }
-
-    // Fallback Safety
-    setTimeout(() => {
-      loader.classList.add("hide");
-    }, 8000);
-  </script>
+// fallback
+setTimeout(()=>loader.classList.add("hide"),7000);
+</script>
 
 </body>
 </html>
