@@ -1,14 +1,75 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-
 <title>LoanSarthi — Smart Loan Management Platform</title>
+<!-- SEO Meta Description -->
+<meta name="description" content="LoanSarthi ek smart loan management platform hai jisme aap loan track, EMI manage, payment recovery aur customer ledger easily handle kar sakte ho. Perfect for small finance businesses, NBFCs aur local lenders.">
+<!-- Keywords -->
+<meta name="keywords" content="loan management software india, emi tracker, lending software, loan ledger system, small finance software, nbfc software, udhar khata app">
+<!-- Author -->
+<meta name="author" content="Suraj Automation">
+<!-- Open Graph -->
+<meta property="og:title" content="LoanSarthi — Smart Loan Management Platform">
+<meta property="og:description" content="Track karein, manage karein aur recover karein loans ek hi platform par. Perfect tool for small lenders & finance businesses.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://yourdomain.com">
+<meta property="og:image" content="preview.png">
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="LoanSarthi — Smart Loan Management Platform">
+<meta name="twitter:description" content="Loan tracking, EMI management aur recovery system — sab ek jagah.">
+<meta name="twitter:image" content="preview.png">
+
+<!-- ================= FAVICON SYSTEM ================= -->
+
+<!--
+  MODERN FAVICON STRATEGY (No external files needed for SVG):
+  - SVG favicon: inline data URI — works in Chrome, Firefox, Edge, Safari 17+
+  - PNG fallbacks: generate from favicon.svg using https://realfavicongenerator.net
+  - Apple touch icon: use favicon-180.png from the generator
+  - site.webmanifest: create separately (template below in comments)
+-->
+
+<!-- SVG favicon — fully self-contained, no external file needed -->
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='bg' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%230f172a'/%3E%3Cstop offset='100%25' stop-color='%231e293b'/%3E%3C/linearGradient%3E%3ClinearGradient id='ring' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%233b82f6'/%3E%3Cstop offset='100%25' stop-color='%238b5cf6'/%3E%3C/linearGradient%3E%3ClinearGradient id='text' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%2360a5fa'/%3E%3Cstop offset='100%25' stop-color='%23a78bfa'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='64' height='64' rx='14' fill='url(%23bg)'/%3E%3Ccircle cx='32' cy='32' r='27' fill='none' stroke='url(%23ring)' stroke-width='3.5' stroke-dasharray='6 3' stroke-linecap='round'/%3E%3Ctext x='32' y='40' font-family='Georgia%2C serif' font-size='22' font-weight='700' fill='url(%23text)' text-anchor='middle' letter-spacing='-1'%3ELS%3C/text%3E%3C/svg%3E">
+
+<!-- PNG fallbacks — generate these from https://realfavicongenerator.net using the SVG above -->
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png">
+
+<!-- Apple Touch Icon -->
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+
+<!-- Android / PWA manifest -->
+<link rel="manifest" href="site.webmanifest">
+
+<!-- Windows Tile -->
+<meta name="msapplication-TileColor" content="#0f172a">
+<meta name="msapplication-TileImage" content="favicon-144.png">
+
+<!-- Theme color (browser chrome) -->
+<meta name="theme-color" content="#0f172a">
+
+<!--
+  site.webmanifest template (save as site.webmanifest):
+  {
+    "name": "LoanSarthi",
+    "short_name": "LoanSarthi",
+    "icons": [
+      { "src": "favicon-192.png", "sizes": "192x192", "type": "image/png" },
+      { "src": "favicon-512.png", "sizes": "512x512", "type": "image/png" }
+    ],
+    "theme_color": "#0f172a",
+    "background_color": "#0f172a",
+    "display": "standalone"
+  }
+-->
+
+<!-- ================================================= -->
 
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
-
 <style>
 :root {
   --bg:#0f172a;
@@ -17,8 +78,6 @@
   --text:#f8fafc;
   --muted:#94a3b8;
 }
-
-/* RESET */
 *{margin:0;padding:0;box-sizing:border-box}
 html,body{height:100%}
 body{
@@ -26,15 +85,9 @@ body{
   background:var(--bg);
   color:var(--text);
   overflow-x:hidden;
-}
-
-/* SAFE AREA (Mobile Notch Fix) */
-body{
   padding-top: env(safe-area-inset-top);
   padding-bottom: env(safe-area-inset-bottom);
 }
-
-/* LOADER */
 .loader{
   position:fixed;
   inset:0;
@@ -45,14 +98,7 @@ body{
   background:linear-gradient(135deg,#0f172a,#111827);
   transition:opacity .4s ease,visibility .4s;
 }
-
-.loader.hide{
-  opacity:0;
-  visibility:hidden;
-  pointer-events:none;
-}
-
-/* CARD */
+.loader.hide{opacity:0;visibility:hidden;pointer-events:none;}
 .card{
   width:90%;
   max-width:340px;
@@ -62,8 +108,6 @@ body{
   backdrop-filter:blur(16px);
   text-align:center;
 }
-
-/* LOGO */
 .logo{
   font-size:28px;
   font-weight:800;
@@ -72,61 +116,22 @@ body{
   -webkit-text-fill-color:transparent;
   margin-bottom:8px;
 }
-
-/* TEXT */
-.tagline{
-  font-size:12px;
-  color:var(--muted);
-  margin-bottom:20px;
-}
-
-/* SPINNER */
+.tagline{font-size:12px;color:var(--muted);margin-bottom:20px;}
 .spinner{
-  width:60px;
-  height:60px;
-  margin:0 auto 20px;
+  width:60px;height:60px;margin:0 auto 20px;
   border-radius:50%;
   border:4px solid rgba(255,255,255,0.1);
   border-top:4px solid var(--primary);
   animation:spin 1s linear infinite;
 }
 @keyframes spin{to{transform:rotate(360deg)}}
-
-/* PROGRESS */
-.progress{
-  height:6px;
-  width:100%;
-  border-radius:10px;
-  background:rgba(255,255,255,0.1);
-  overflow:hidden;
-}
-.bar{
-  height:100%;
-  width:0%;
-  background:linear-gradient(90deg,var(--primary),var(--secondary));
-  transition:width .4s ease;
-}
-
-/* IFRAME */
-.app{
-  width:100%;
-  height:100%;
-}
-iframe{
-  width:100%;
-  height:100%;
-  border:none;
-}
-
-/* MOBILE OPTIMIZATION */
-@media(max-width:480px){
-  .logo{font-size:24px}
-  .card{padding:22px}
-}
-
+.progress{height:6px;width:100%;border-radius:10px;background:rgba(255,255,255,0.1);overflow:hidden;}
+.bar{height:100%;width:0%;background:linear-gradient(90deg,var(--primary),var(--secondary));transition:width .4s ease;}
+.app{width:100%;height:100%;}
+iframe{width:100%;height:100%;border:none;}
+@media(max-width:480px){.logo{font-size:24px}.card{padding:22px}}
 </style>
 </head>
-
 <body>
 
 <div class="loader" id="loader">
@@ -150,28 +155,18 @@ iframe{
 <script>
 const loader = document.getElementById("loader");
 const bar = document.getElementById("bar");
-
 let progress = 0;
-
-// Fake progress animation (better UX feel)
 const interval = setInterval(()=>{
-  progress += Math.random()*15;
-  if(progress >= 90) progress = 90;
+  progress += Math.random()*12;
+  if(progress >= 92) progress = 92;
   bar.style.width = progress + "%";
-},300);
-
+}, 300);
 function loaded(){
   clearInterval(interval);
   bar.style.width = "100%";
-
-  setTimeout(()=>{
-    loader.classList.add("hide");
-  },500);
+  setTimeout(()=>{ loader.classList.add("hide"); }, 500);
 }
-
-// fallback
-setTimeout(()=>loader.classList.add("hide"),7000);
+setTimeout(()=>loader.classList.add("hide"), 7000);
 </script>
-
 </body>
 </html>
